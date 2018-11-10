@@ -44,10 +44,10 @@ nrep <- 100  # Assign number of replicates
 REP <- matrix(0, nrow=nrep, ncol=5) ## Results matrix
 ii <- 0 # index of repeat, don't change! 
 repeat {
-  ii <- ii+1; cat("Loop Index: ", ii, "\n")
+  ii <- ii+1; cat("Simulation Replicate: ", ii, "\n")
   Ns <- 12 ; sires <- data.frame(sire=1:Ns, effects = runif(Ns, .3, .35), no_batches = sample(2:8, size=Ns, replace=T))
   Nb <- sum(sires$no_batches); 
-  batches <- data.frame(batch=1:Nb, effects = runif(Nb, 0, .04), no_obs = sample(100:200, size=Nb, replace=T))
+  batches <- data.frame(batch=1:Nb, effects = runif(Nb, 0, .03), no_obs = sample(500:700, size=Nb, replace=T)) #100-200
   N <- sum(batches$no_obs)
   batch_cumsum <- c(0, cumsum(sires$no_batches))
   obs_sum <- numeric(Ns)
